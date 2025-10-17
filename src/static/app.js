@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create participants list HTML
         const participantsList = details.participants.length > 0
           ? `<ul class="participants-list">
-              ${details.participants.map(email => `<li>${email}</li>`).join('')}
+              ${details.participants.map(email => `
+                <li>
+                  <span>${email}</span>
+                  <span class="delete-participant" data-activity="${name}" data-email="${email}" title="Unregister ${email}">✕</span>
+                </li>
+              `).join('')}
             </ul>`
           : '<p class="no-participants"><em>No participants yet. Be the first to sign up!</em></p>';
 
